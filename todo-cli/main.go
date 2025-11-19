@@ -148,8 +148,6 @@ func main() {
 					task.Priority = priority
 				}
 
-				fmt.Println(task)
-
 				jsonData, err := json.Marshal(task)
 				CheckError(err)
 				url := "http://localhost:8080/tasks/" + fmt.Sprintf("%s", id)
