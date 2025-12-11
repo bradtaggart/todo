@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"gorm.io/driver/postgres"
+	//"gorm.io/driver/postgres"
+	"gorm.io/driver/sqlite" // Sqlite driver based on CGO
+	// Sqlite driver based on CGO
+	//"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
 	"github.com/bradtaggart/gin-todo/models"
@@ -14,8 +17,8 @@ var DB *gorm.DB
 
 func Connect() {
 	var err error
-	dsn := "host=localhost user=brad password=3582 dbname=todo_list port=5432 sslmode=disable TimeZone=America/Denver"
-	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	//lsdsn := "host=localhost user=brad password=3582 dbname=todo_list port=5432 sslmode=disable TimeZone=America/Denver"
+	DB, err = gorm.Open(sqlite.Open("tasks"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
