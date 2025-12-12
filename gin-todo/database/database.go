@@ -17,8 +17,8 @@ var DB *gorm.DB
 
 func Connect() {
 	var err error
-	//lsdsn := "host=localhost user=brad password=3582 dbname=todo_list port=5432 sslmode=disable TimeZone=America/Denver"
-	DB, err = gorm.Open(sqlite.Open("tasks"), &gorm.Config{})
+	//dsn := "host=localhost user=brad password=3582 dbname=todo_list port=5432 sslmode=disable TimeZone=America/Denver"
+	DB, err = gorm.Open(sqlite.Open("tasks.db"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
